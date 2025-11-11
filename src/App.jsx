@@ -23,7 +23,7 @@
    return (
      <Router>
        <AuthProvider>
-         <div className="bg-gray-300 my-20 mx-40 p-10 rounded-lg text-center">
+         <div className="bg-gray-300 md:my-20 md:mx-40 md:p-10 min-h-screen p-2 rounded-lg text-center">
            <nav className="flex justify-center gap-6 mb-8 text-blue-700 font-semibold">
              <Link to="/register" className="hover:underline">
                Sign Up
