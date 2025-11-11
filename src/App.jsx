@@ -2,16 +2,13 @@
    BrowserRouter as Router,
    Routes,
    Route,
-   Link,
    Navigate,
+   Link,
  } from "react-router-dom";
  import Register from "./components/Register";
  import Login from "./components/Login";
  import Dashboard from "./components/Dashboard";
  import VerifyEmail from "./components/VerifyEmail";
- import Profile from "./components/Profile";
- import UserProfile from "./components/UserProfile";
- import CreateProduct from "./components/CreateProduct";
  import { AuthProvider, useAuth } from "./Context/AuthContext";
 
  function ProtectedRoute({ children }) {
@@ -23,7 +20,7 @@
    return (
      <Router>
        <AuthProvider>
-         <div className="bg-gray-300 md:my-20 md:mx-40 md:p-10 min-h-screen p-2 rounded-lg text-center">
+         <div className="bg-gray-300 min-h-screen py-10 px-4 text-center">
            <nav className="flex justify-center gap-6 mb-8 text-blue-700 font-semibold">
              <Link to="/register" className="hover:underline">
                Sign Up
@@ -34,15 +31,12 @@
              <Link to="/dashboard" className="hover:underline">
                Dashboard
              </Link>
-             <Link to="/profile" className="hover:underline">
-               Profile
-             </Link>
            </nav>
 
            <Routes>
-             <Route path="/" element={<Navigate to="/login" />} />
              <Route path="/register" element={<Register />} />
              <Route path="/login" element={<Login />} />
+             <Route path="/verify/:id" element={<VerifyEmail />} />
              <Route
                path="/dashboard"
                element={
@@ -51,31 +45,7 @@
                  </ProtectedRoute>
                }
              />
-             <Route
-               path="/profile"
-               element={
-                 <ProtectedRoute>
-                   <Profile />
-                 </ProtectedRoute>
-               }
-             />
-             <Route
-               path="/user/:id"
-               element={
-                 <ProtectedRoute>
-                   <UserProfile />
-                 </ProtectedRoute>
-               }
-             />
-             <Route
-               path="/create-product"
-               element={ 
-                 <ProtectedRoute>
-                   <CreateProduct />
-                 </ProtectedRoute>
-               }
-             />
-             <Route path="/verify/:id" element={<VerifyEmail />} />
+             <Route path="*" element={<Navigate to="/login" />} />
            </Routes>
          </div>
        </AuthProvider>
