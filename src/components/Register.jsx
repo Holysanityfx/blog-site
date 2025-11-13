@@ -22,7 +22,7 @@ export default function Register() {
     };
 
   return (
-    <div className="flex md:px-90 w-full">
+    <div className="flex justify-center w-full">
     <div className="relative text-center flex flex-col items-center md:w-150  p-4 rounded-bl-4xl rounded-tr-4xl overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
