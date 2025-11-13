@@ -2,6 +2,7 @@
  import { useNavigate } from "react-router-dom";
  import { useAuth } from "../Context/AuthContext";
  import ImageLogo from "../assets/wallimage.jpg"
+import { div } from "framer-motion/m";
 
  export default function Login() {
    const { login } = useAuth();
@@ -22,58 +23,58 @@
    };
 
    return (
-     <div className="relative text-center font-extrabold flex flex-col items-center p-4 mt-20 rounded-bl-4xl rounded-tr-4xl overflow-hidden">
-    
-       <div
-         className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm"
-         style={{ backgroundImage: `url(${ImageLogo})` }}
-       ></div>
+     <div className="flex md:px-90 w-full">
+       <div className="relative text-center md:w-150 font-extrabold flex flex-col items-center p-5 mt-10 rounded-bl-4xl rounded-tr-4xl overflow-hidden">
+         <div
+           className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs "
+           style={{ backgroundImage: `url(${ImageLogo})` }}
+         ></div>
 
-    
-       <div className="relative z-10 text-white">
-         <h1 className="font-bold text-2xl mb-5">
-           Welcome Back to Everyday News
-         </h1>
+         <div className="relative z-10 text-white">
+           <h1 className="font-bold text-2xl mb-5">
+             Welcome Back to Everyday News
+           </h1>
 
-         <form
-           onSubmit={handleSubmit}
-           className="flex flex-col items-center w-full"
-         >
-           <label className="mt-5 font-extrabold">
-             Input Your correct Email
-           </label>
-           <input
-             name="email"
-             onChange={(e) =>
-               setFormData({ ...formData, email: e.target.value })
-             }
-             value={formData.email}
-             className="md:w-1/2 w-full rounded-bl-3xl  rounded-tr-3xl mb-5 p-2 text-center  border-4"
-             type="email"
-             placeholder="Enter your Email"
-           />
-
-           <label className="mt-5 font-extrabold">
-             Input Your correct Password
-           </label>
-           <input
-             name="password"
-             onChange={(e) =>
-               setFormData({ ...formData, password: e.target.value })
-             }
-             value={formData.password}
-             className="md:w-1/2 w-full rounded-bl-3xl rounded-tr-3xl mb-10 p-2 text-center border-4"
-             type="password"
-             placeholder="Enter your Password"
-           />
-
-           <button
-             type="submit"
-             className="bg-green-600 text-white px-4 py-2 rounded-lg mt-4"
+           <form
+             onSubmit={handleSubmit}
+             className="flex flex-col items-center w-full"
            >
-             Login
-           </button>
-         </form>
+             <label className="mt-5 font-extrabold">
+               Input Your correct Email
+             </label>
+             <input
+               name="email"
+               onChange={(e) =>
+                 setFormData({ ...formData, email: e.target.value })
+               }
+               value={formData.email}
+               className="md:w-60 w-full rounded-bl-3xl  rounded-tr-3xl mb-5 p-2 text-center  border-4"
+               type="email"
+               placeholder="Enter your Email"
+             />
+
+             <label className="mt-5 font-extrabold">
+               Input Your correct Password
+             </label>
+             <input
+               name="password"
+               onChange={(e) =>
+                 setFormData({ ...formData, password: e.target.value })
+               }
+               value={formData.password}
+               className="md:w-60 w-full rounded-bl-3xl rounded-tr-3xl mb-10 p-2 text-center border-4"
+               type="password"
+               placeholder="Enter your Password"
+             />
+
+             <button
+               type="submit"
+               className="bg-green-600 cursor-pointer text-white px-4 py-2 rounded-lg mt-4"
+             >
+               Login
+             </button>
+           </form>
+         </div>
        </div>
      </div>
    );

@@ -13,6 +13,7 @@
  import Navmenu from "../src/assets/react.svg"
  import { useState } from "react";
  import BgImage from "../src/assets/wall2.jpg"
+ import NavIma from "../src/assets/wallimage.jpg"
 import Home from "./components/Home";
 
  function ProtectedRoute({ children }) {
@@ -27,14 +28,16 @@ import Home from "./components/Home";
      <Router>
        <AuthProvider>
          <div
-           className="  min-h-screen bg-cover bg-center bg-no-repeat md:py-10 p-2 px-4 text-center item"
+           className="  min-h-screen bg-cover bg-center bg-no-repeat md:py-3 p-2 px-4 text-center item"
            style={{ backgroundImage: `url(${BgImage})` }}
          >
-           <div className="flex justify-between relative mb-6 ">
-             <h1 className=" font-extrabold text-2xl text-amber-600 text-shadow-2xs ">
+           <div className="flex justify-between relative text-white  bg-cover bg-no-repeat bg-center mb-5 rounded-b-2xl  -m-4 pt-4 px-2 pb-3 md:px-9 "
+           style={{backgroundImage: `url(${NavIma})`}}
+           >
+             <h1 className=" font-extrabold text-2xl text-shadow-2xs ">
                EveryDay News
              </h1>
-             <nav className="md:flex hidden justify-center gap-6 mb-8 text-blue-700 font-semibold">
+             <nav className="md:flex hidden justify-center gap-6 mb-8  font-semibold">
                <Link to="/home" className="hover:underline">
                  Home
                </Link>
