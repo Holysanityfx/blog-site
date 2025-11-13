@@ -48,13 +48,22 @@
          className="flex flex-col items-center"
          encType="multipart/form-data"
        >
+        <div className=" flex gap-5 ">
          <input
            name="title"
            value={formData.title}
            onChange={handleChange}
            placeholder="Post title"
            className="w-1/2 p-2 mb-4 border-2 rounded-lg"
+         /> 
+          <input
+           type="file"
+           name="image"
+           onChange={handleChange}
+           accept="image/*"
+           className="w-1/2 p-2 mb-4 border-2 rounded-lg"
          />
+         </div>
          <textarea
            name="content"
            value={formData.content}
@@ -63,13 +72,7 @@
            className="w-1/2 p-2 mb-4 border-2 rounded-lg"
            rows="4"
          />
-         <input
-           type="file"
-           name="image"
-           onChange={handleChange}
-           accept="image/*"
-           className="w-1/2 p-2 mb-4 border-2 rounded-lg"
-         />
+       
          <button
            type="submit"
            className="bg-green-600 text-white px-4 py-2 rounded-lg"

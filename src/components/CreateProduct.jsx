@@ -73,6 +73,7 @@ export default function CreateProduct() {
           className="border p-2 mb-4 w-1/2 rounded-lg"
           type="number"
         />
+        
         <input
           type="file"
           name="image"

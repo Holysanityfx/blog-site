@@ -29,21 +29,30 @@
          onSubmit={handleSubmit}
          className="flex flex-col items-center w-full"
        >
+         <label className=" mt-5 font-extrabold text-black/50 ">
+           {" "}
+           Input Your correct Email{" "}
+         </label>
          <input
            name="email"
            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
            value={formData.email}
-           className=" md:w-1/2 w-full mt-5 mb-5 p-2 text-center border-2 rounded-lg"
+           className=" md:w-1/2 w-full mb-5 p-2 text-center border-2 rounded-lg"
            type="email"
            placeholder="Enter your Email"
          />
+
+         <label className=" mt-5 font-extrabold text-black/50 ">
+           {" "}
+           Input Your correct PAssword{" "}
+         </label>
          <input
            name="password"
            onChange={(e) =>
              setFormData({ ...formData, password: e.target.value })
            }
            value={formData.password}
-           className="md:w-1/2 w-full mb-10 mt-5 p-2 text-center border-2 rounded-lg"
+           className="md:w-1/2 w-full mb-10 p-2 text-center border-2 rounded-lg"
            type="password"
            placeholder="Enter your Password"
          />
