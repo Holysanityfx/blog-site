@@ -12,6 +12,8 @@
  import { AuthProvider, useAuth } from "./Context/AuthContext";
  import Navmenu from "../src/assets/react.svg"
  import { useState } from "react";
+ import BgImage from "../src/assets/wall2.jpg"
+import Home from "./components/Home";
 
  function ProtectedRoute({ children }) {
    const { token } = useAuth();
@@ -24,12 +26,18 @@
    return (
      <Router>
        <AuthProvider>
-         <div className=" bg-gray-300 min-h-screen md:py-10 p-2 px-4 text-center">
+         <div
+           className="  min-h-screen bg-cover bg-center bg-no-repeat md:py-10 p-2 px-4 text-center item"
+           style={{ backgroundImage: `url(${BgImage})` }}
+         >
            <div className="flex justify-between relative mb-6 ">
              <h1 className=" font-extrabold text-2xl text-amber-600 text-shadow-2xs ">
                EveryDay News
              </h1>
              <nav className="md:flex hidden justify-center gap-6 mb-8 text-blue-700 font-semibold">
+               <Link to="/home" className="hover:underline">
+                 Home
+               </Link>
                <Link to="/register" className="hover:underline">
                  Sign Up
                </Link>
@@ -43,6 +51,14 @@
 
              {isOpen && (
                <nav className=" md:hidden z-50 flex flex-col w-full h-[400px] absolute bg-white justify-center gap-6 mb-8 text-blue-700 font-semibold">
+                 <Link
+                   onClick={() => SetIsopen(false)}
+                   to="/Home"
+                   className="hover:underline"
+                 >
+                   Home
+                 </Link>
+
                  <Link
                    onClick={() => SetIsopen(false)}
                    to="/register"
@@ -88,6 +104,7 @@
            </div>
 
            <Routes>
+             <Route path="/home" element={<Home />} />
              <Route path="/register" element={<Register />} />
              <Route path="/login" element={<Login />} />
              <Route path="/verify/:id" element={<VerifyEmail />} />
@@ -99,7 +116,7 @@
                  </ProtectedRoute>
                }
              />
-             <Route path="*" element={<Navigate to="/login" />} />
+             <Route path="*" element={<Navigate to="/home" />} />
            </Routes>
          </div>
        </AuthProvider>

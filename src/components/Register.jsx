@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../Context/AuthContext";
+import ImageLogo from "../assets/wallimage.jpg"
 export default function Register() {
 
     const {register} = useAuth();
@@ -20,58 +21,68 @@ export default function Register() {
     };
 
   return (
-    <div className="text-center flex flex-col items-center">
-      <h1 className="font-bold text-2xl mb-5">Welcome to Everyday News</h1>
-      <p>Kindly Login or sign up if you are yet to have an account</p>
+    <div className="relative text-center flex flex-col items-center p-6 mt-10 rounded-bl-4xl rounded-tr-4xl overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm"
+        style={{ backgroundImage: `url(${ImageLogo})` }}
+      ></div>
 
-      <form
-        onSubmit={handdleSubmit}
-        className="flex flex-col items-center w-full"
-      >
-        <label className=" mt-7 font-extrabold text-black/50">
-          {" "}
-          Input Your Correct name{" "}
-        </label>
-        <input
-          className=" md:w-1/2 w-full mt p-1 text-center border-2 rounded-lg  "
-          type="text"
-          name="name"
-          onChange={handleChange}
-          value={formData.name}
-          placeholder="Input your Name"
-        />
+      <div className="relative z-10 w-full">
+        <h1 className="font-extrabold text-2xl mb-5 text-white ">
+          Welcome to Everyday News
+        </h1>
+        <p className=" text-white font-bold mb-6">
+          Kindly Login or sign up if you are yet to have an account
+        </p>
 
-        <label className=" mt-7 font-extrabold text-black/50">
-          {" "}
-          Input Your Correct Email{" "}
-        </label>
-        <input
-          className="md:w-1/2 w-full p-1 text-center border-2 rounded-lg  "
-          type="email"
-          name="email"
-          onChange={handleChange}
-          value={formData.email}
-          placeholder="Input your Email"
-        />
-        <label className="  mt-7 font-extrabold text-black/50">
-          {" "}
-          Create a Strong password{" "}
-        </label>
-        <input
-          className=" md:w-1/2 w-full p-1 text-center border-2 rounded-lg  "
-          type="password"
-          name="password"
-          onChange={handleChange}
-          value={formData.password}
-          placeholder="Create your Password"
-        />
-        <button
-          type="submit"
-          className="bg-green-600 border-2 text-white p-1 rounded-lg mt-3 cursor-pointer"
+        <form
+          onSubmit={handdleSubmit}
+          className="flex flex-col text-white items-center w-full"
         >
-          Sign Up
-        </button>
-      </form>
+          <label className="mt-7 font-extrabold ">
+            Input Your Correct Name
+          </label>
+          <input
+            className="md:w-1/2 w-full p-2 text-center border-4 rounded-bl-3xl  rounded-tr-3xl"
+            type="text"
+            name="name"
+            onChange={handleChange}
+            value={formData.name}
+            placeholder="Input your Name"
+          />
+
+          <label className="mt-7 font-extrabold ">
+            Input Your Correct Email
+          </label>
+          <input
+            className="md:w-1/2 w-full p-2 text-center border-4 rounded-bl-3xl  rounded-tr-3xl"
+            type="email"
+            name="email"
+            onChange={handleChange}
+            value={formData.email}
+            placeholder="Input your Email"
+          />
+
+          <label className="mt-7 font-extrabold ">
+            Create a Strong Password
+          </label>
+          <input
+            className="md:w-1/2 w-full p-2 text-center border-4 rounded-bl-3xl  rounded-tr-3xl"
+            type="password"
+            name="password"
+            onChange={handleChange}
+            value={formData.password}
+            placeholder="Create your Password"
+          />
+
+          <button
+            type="submit"
+            className="bg-green-600 border-2 text-white p-2 rounded-lg mt-5 hover:bg-green-700 transition"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
