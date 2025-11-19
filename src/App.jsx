@@ -28,26 +28,30 @@ import Home from "./components/Home";
      <Router>
        <AuthProvider>
          <div
-           className="  min-h-screen bg-cover bg-center bg-no-repeat md:py-3 p-2 px-4 text-center item"
-           style={{ backgroundImage: `url(${BgImage})` }}
+           className="  min-h-screen bg-cover bg-white md:py-3 p-2 px-4 text-center item"
+            
          >
-           <div className="flex justify-between relative text-white  bg-cover bg-no-repeat bg-center mb-5 rounded-b-2xl  -m-4 pt-4 px-2 pb-3 md:px-9 "
-           style={{backgroundImage: `url(${NavIma})`}}
-           >
-             <h1 className=" font-extrabold text-2xl text-shadow-2xs ">
+           <div className="flex justify-between relative text-black/50 border-b-3   bg-white mb-5 rounded-b-2xl  -m-4 pt-4 px-2 pb-3 md:px-9 ">
+             <h1 className=" font-extrabold text-2xl text-black text-shadow-2xs ">
                EveryDay News
              </h1>
-             <nav className="md:flex hidden justify-center gap-6 mb-8  font-semibold">
-               <Link to="/home" className="hover:underline">
+             <nav className="md:flex   hidden justify-center gap-6 mb-8  font-semibold">
+               <Link to="/home" className="hover:underline hover:text-black">
                  Home
                </Link>
-               <Link to="/register" className="hover:underline">
+               <Link
+                 to="/register"
+                 className="hover:underline hover:text-black"
+               >
                  Sign Up
                </Link>
-               <Link to="/login" className="hover:underline">
+               <Link to="/login" className="hover:underline hover:text-black">
                  Login
                </Link>
-               <Link to="/dashboard" className="hover:underline">
+               <Link
+                 to="/dashboard"
+                 className="hover:underline hover:text-black "
+               >
                  Dashboard
                </Link>
              </nav>

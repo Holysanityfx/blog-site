@@ -23,7 +23,7 @@ export default function Register() {
 
   return (
     <div className="flex justify-center w-full">
-    <div className="relative text-center flex flex-col items-center md:w-150  p-4 rounded-bl-4xl rounded-tr-4xl overflow-hidden">
+    <div className="relative text-center flex flex-col items-center md:w-120  p-4 rounded-bl-4xl rounded-tr-4xl overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
         style={{ backgroundImage: `url(${ImageLogo})` }}

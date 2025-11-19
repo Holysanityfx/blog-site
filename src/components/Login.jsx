@@ -24,7 +24,7 @@ import { div } from "framer-motion/m";
 
    return (
      <div className="flex justify-center w-full">
-       <div className="relative text-center md:w-150 font-extrabold flex flex-col items-center p-5 mt-10 rounded-bl-4xl rounded-tr-4xl overflow-hidden">
+       <div className="relative text-center md:w-120 font-extrabold flex flex-col items-center p-5 mt-10 rounded-bl-4xl rounded-tr-4xl overflow-hidden">
          <div
            className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs "
            style={{ backgroundImage: `url(${ImageLogo})` }}

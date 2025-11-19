@@ -50,7 +50,7 @@ function Home() {
         Welcome {user?.name || "Guest"} 👋
       </h1>
 
-      <div className="md:w-1/2 mb-5 text-gray-700">
+      <div className="md:w-1/2 mb-5 font-serif text-2xl text-gray-700">
         I’m so glad you’re here. This is a space where ideas, stories, and
         inspiration come together. Whether you’re here to learn something new,
         find motivation, or just enjoy a good read — make yourself at home. Grab
