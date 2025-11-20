@@ -10,7 +10,7 @@
  import Dashboard from "./components/Dashboard";
  import VerifyEmail from "./components/VerifyEmail";
  import { AuthProvider, useAuth } from "./Context/AuthContext";
- import Navmenu from "../src/assets/react.svg"
+ import Navmenu from "../src/assets/icon-menu.svg"
  import { useState } from "react";
  import BgImage from "../src/assets/wall2.jpg"
  import NavIma from "../src/assets/wallimage.jpg"
@@ -27,11 +27,9 @@ import Home from "./components/Home";
    return (
      <Router>
        <AuthProvider>
-         <div
-           className="  min-h-screen bg-cover bg-white md:py-3 p-2 px-4 text-center item"
-            
-         >
-           <div className="flex justify-between relative text-black/50 border-b-3   bg-white mb-5 rounded-b-2xl  -m-4 pt-4 px-2 pb-3 md:px-9 ">
+         <div className="  min-h-screen bg-cover bg-white md:py-3 p-2 px-4 text-center item">
+           <div className="flex flex-col justify-between text-black/50 border-b-3   bg-white mb-5 rounded-b-2xl  -m-4 pt-4 px-2 pb-3 md:px-25 ">
+           <div className="flex justify-between ">
              <h1 className=" font-extrabold text-2xl text-black text-shadow-2xs ">
                EveryDay News
              </h1>
@@ -55,9 +53,16 @@ import Home from "./components/Home";
                  Dashboard
                </Link>
              </nav>
+             <img
+               onClick={() => SetIsopen(true)}
+               className="md:hidden cursor-pointer h-7"
+               src={Navmenu}
+               alt=""
+             />
+             </div>
 
              {isOpen && (
-               <nav className=" md:hidden z-50 flex flex-col w-full h-[400px] absolute bg-white justify-center gap-6 mb-8 text-blue-700 font-semibold">
+               <nav className=" md:hidden z-50 flex text-start  flex-col w-full bg-white gap-2  text-black font-semibold">
                  <Link
                    onClick={() => SetIsopen(false)}
                    to="/Home"
@@ -87,27 +92,8 @@ import Home from "./components/Home";
                  >
                    Dashboard
                  </Link>
-                 <h1
-                   onClick={() => SetIsopen(false)}
-                   className="hover:underline"
-                 >
-                   About Us
-                 </h1>
-                 <h1
-                   onClick={() => SetIsopen(false)}
-                   className="hover:underline"
-                 >
-                   Contact
-                 </h1>
                </nav>
              )}
-
-             <img
-               onClick={() => SetIsopen(true)}
-               className="md:hidden cursor-pointer"
-               src={Navmenu}
-               alt=""
-             />
            </div>
 
            <Routes>

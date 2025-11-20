@@ -52,9 +52,7 @@ function Home() {
 
       <div className="md:w-1/2 mb-5 font-serif text-2xl text-gray-700">
         I’m so glad you’re here. This is a space where ideas, stories, and
-        inspiration come together. Whether you’re here to learn something new,
-        find motivation, or just enjoy a good read — make yourself at home. Grab
-        a cup of coffee, explore a few posts, and let’s grow together!
+        inspiration come together. 
       </div>
 
       <h2 className="text-2xl mb-4 font-semibold">All Posts</h2>
