@@ -68,8 +68,8 @@ export default function Dashboard() {
       <div className="md:w-1/2 my- md:font-bold mb-5 text-gray-700">
         I’m so glad you’re here. This is a space where ideas, stories, and
         inspiration come together. Whether you’re here to learn something new,
-        find motivation, or just enjoy a good read — make yourself at home.
-        Grab a cup of coffee, explore a few posts, and let’s grow together!
+        find motivation, or just enjoy a good read — make yourself at home. Grab
+        a cup of coffee, explore a few posts, and let’s grow together!
       </div>
 
       <button
@@ -82,7 +82,12 @@ export default function Dashboard() {
         Logout
       </button>
 
-      <h2 className="text-2xl mb-4 font-semibold">All Posts</h2>
+      <h2 className="text-2xl mb-4 font-semibold w-1/2 rounded-lg text-white bg-green-800 ">
+        All Posts
+      </h2>
+      <h2 className="text-2xl mb-4 font-semibold w-1/2 bg-white shadow-2xl cursor-pointer  rounded-lg">
+        Learn More
+      </h2>
 
       {/* Posts Grid */}
       <div className="space-y-4 md:flex md:flex-wrap justify-center">
@@ -93,7 +98,7 @@ export default function Dashboard() {
             <div
               key={post._id}
               onClick={() => setSelectedIndex(index)}
-              className="bg-white shadow-md md:w-80 rounded-lg p-4 mx-4 cursor-pointer hover:shadow-xl transition-transform hover:-translate-y-1"
+              className="bg-white shadow-md md:w-60 rounded-lg p-4 mx-4 cursor-pointer hover:shadow-xl transition-transform hover:-translate-y-1"
             >
               <h3 className="font-bold text-xl mb-2">{post.title}</h3>
               <p className="text-gray-600 line-clamp-3">{post.content}</p>
