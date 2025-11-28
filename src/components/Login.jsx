@@ -1,16 +1,18 @@
  import { useState } from "react";
  import { useNavigate } from "react-router-dom";
  import { useAuth } from "../Context/AuthContext";
- import ImageLogo from "../assets/wallimage.jpg"
-import { div } from "framer-motion/m";
+ import ImageLogo from "../assets/wallimage.jpg";
 
  export default function Login() {
    const { login } = useAuth();
    const [formData, setFormData] = useState({ email: "", password: "" });
+   const [loading, setLoading] = useState(false);
    const navigate = useNavigate();
 
    const handleSubmit = async (e) => {
      e.preventDefault();
+     setLoading(true); // Start loading animation
+
      try {
        const res = await login(formData.email, formData.password);
        if (res?.user) {
@@ -19,6 +21,8 @@ import { div } from "framer-motion/m";
        }
      } catch (err) {
        alert(err.message);
+     } finally {
+       setLoading(false); // Stop loading animation
      }
    };
 
@@ -26,7 +30,7 @@ import { div } from "framer-motion/m";
      <div className="flex justify-center w-full">
        <div className="relative text-center md:w-120 font-extrabold flex flex-col items-center p-5 mt-10 rounded-bl-4xl rounded-tr-4xl overflow-hidden">
          <div
-           className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs "
+           className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
            style={{ backgroundImage: `url(${ImageLogo})` }}
          ></div>
 
@@ -48,7 +52,7 @@ import { div } from "framer-motion/m";
                  setFormData({ ...formData, email: e.target.value })
                }
                value={formData.email}
-               className="md:w-60 w-full rounded-bl-3xl  rounded-tr-3xl mb-5 p-2 text-center  border-4"
+               className="md:w-60 w-full rounded-bl-3xl rounded-tr-3xl mb-5 p-2 text-center border-4"
                type="email"
                placeholder="Enter your Email"
              />
@@ -69,9 +73,19 @@ import { div } from "framer-motion/m";
 
              <button
                type="submit"
-               className="bg-green-600 cursor-pointer text-white px-4 py-2 rounded-lg mt-4"
+               disabled={loading}
+               className={`bg-green-600 text-white px-4 py-2 rounded-lg mt-4 flex items-center gap-2 ${
+                 loading ? "opacity-70 cursor-not-allowed" : "cursor-pointer"
+               }`}
              >
-               Login
+               {loading ? (
+                 <>
+                   <div className="h-5 w-5 border-4 border-white border-t-transparent animate-spin rounded-full"></div>
+                   Logging in...
+                 </>
+               ) : (
+                 "Login"
+               )}
              </button>
            </form>
          </div>
